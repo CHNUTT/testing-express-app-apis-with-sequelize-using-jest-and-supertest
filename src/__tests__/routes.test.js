@@ -18,4 +18,21 @@ describe('User API', () => {
     }
     done();
   });
+
+  it('shoud return a user', async (done) => {
+    const res = await request(app).get('/api/users/1');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('user');
+    if (res.body.user.length > 0) {
+      expect(res.body.user).toHaveProperty('id');
+      expect(res.body.user).toHaveProperty('firstName');
+      expect(res.body.user).toHaveProperty('lastName');
+      expect(res.body.user).toHaveProperty('email');
+      expect(res.body.user).toHaveProperty('password');
+      expect(res.body.user).toHaveProperty('createdAt');
+      expect(res.body.user).toHaveProperty('updatedAt');
+      expect(res.body.user).toHaveProperty('Items');
+    }
+    done();
+  });
 });
