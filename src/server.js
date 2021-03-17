@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // INFO Register simple route
+app.use('/status', (req, res, next) => {
+  res.send('Ok');
+});
 app.use('/api', routes);
 
 app.use((error, req, res, next) => {
@@ -22,4 +25,7 @@ app.use((error, req, res, next) => {
 });
 
 // INFO Start application
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+if (process.env.NODE_ENV !== 'test')
+  app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+
+module.exports = app;
