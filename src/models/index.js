@@ -9,10 +9,6 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.json')[env];
 const db = {};
 
-console.log('basename', basename);
-console.log(config);
-console.log(__dirname);
-
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -44,8 +40,6 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-
-console.log(db);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
