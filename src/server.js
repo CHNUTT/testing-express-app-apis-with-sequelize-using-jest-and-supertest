@@ -14,5 +14,10 @@ app.use(express.json());
 // INFO Register simple route
 app.use('/api', routes);
 
+app.use((error, req, res, next) => {
+  if (!error.statusCode) error.statusCode = 500;
+  res.status(error.statusCode).json({ error: error.message });
+});
+
 // INFO Start application
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
