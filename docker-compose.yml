@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+
+  db:
+    image: 'postgres:13'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+
+  pgadmin:
+    image: 'dpage/pgadmin4'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: emp@thai.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
+    ports:
+      - 3001:80
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin

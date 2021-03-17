@@ -1,0 +1,19 @@
+FROM node:latest
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+RUN num install -D nodemon
+
+COPY . .
+
+EXPOSE 3000
+
+ENTRYPOINT [ "npm" ]
+
+CMD [ "run", "dev" ]
