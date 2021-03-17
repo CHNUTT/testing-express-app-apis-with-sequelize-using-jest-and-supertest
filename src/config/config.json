@@ -5,10 +5,7 @@
     "database": "database_development",
     "host": "db",
     "port": "5432",
-    "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": "true"
-    }
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
