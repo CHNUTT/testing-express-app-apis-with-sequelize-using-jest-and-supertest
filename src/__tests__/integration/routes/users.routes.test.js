@@ -1,5 +1,5 @@
 const request = require('supertest');
-let app = require('../server');
+const app = require('../../../server');
 
 describe('User API', () => {
   it('should return all users', async (done) => {

@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test jest --verbose --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
-    "test-local": "NODE_ENV=testLocal jest --verbose --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
     "pretest": "NODE_ENV=test npm run db:reset",
+    "test-local": "NODE_ENV=testLocal PORT=3001 jest --verbose --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
+    "pretest-local": "NODE_ENV=testLocal npm run db:reset",
     "db:create:test": "NODE_ENV=test npx sequelize-cli db:create",
     "dev": "nodemon ./src/server.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"

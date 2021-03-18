@@ -1,6 +1,5 @@
 const request = require('supertest');
-const { response } = require('../server');
-const app = require('../server');
+const app = require('../../../server');
 
 describe('Test /status', () => {
   it('should return Ok', async (done) => {

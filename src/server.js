@@ -25,7 +25,7 @@ app.use((error, req, res, next) => {
 });
 
 // INFO Start application
-if (process.env.NODE_ENV !== 'test' || process.env.NODE_ENV !== 'testLocal')
+if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'testLocal')
   app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 module.exports = app;
