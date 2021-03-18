@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test jest --verbose --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
+    "test": "NODE_ENV=test jest --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
     "pretest": "NODE_ENV=test npm run db:reset",
     "test-local": "NODE_ENV=testLocal PORT=3001 jest --verbose --coverage --forceExit --watchAll --maxWorkers=1 --testTimeout=10000",
     "pretest-local": "NODE_ENV=testLocal npm run db:reset",
