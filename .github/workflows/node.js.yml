@@ -28,6 +28,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: database_test
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -41,8 +42,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install all packages
-        run: npm install
+      # - name: install all packages
+      #   run: npm install
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
