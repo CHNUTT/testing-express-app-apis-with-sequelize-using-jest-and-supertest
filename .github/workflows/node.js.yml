@@ -13,10 +13,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 15.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    container: node:latest
+
+    # strategy:
+    #   matrix:
+    #     node-version: [14.x, 15.x]
+    # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     # Service containers to run with `container-job`
     services:
@@ -40,8 +42,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+        # with:
+        #   node-version: ${{ matrix.node-version }}
       # - name: install all packages
       #   run: npm install
       - run: npm ci
