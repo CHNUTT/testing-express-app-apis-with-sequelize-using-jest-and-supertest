@@ -10,7 +10,7 @@
     "username": "postgres",
     "password": "postgres",
     "database": "database_test",
-    "host": "db",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "testLocal": {
